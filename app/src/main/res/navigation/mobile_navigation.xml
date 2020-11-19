@@ -15,7 +15,7 @@
         android:id="@+id/navigation_dashboard"
         android:name="com.vk.covid_19.ui.countries.DashboardFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_countries" />
 
     <fragment
         android:id="@+id/navigation_notifications"

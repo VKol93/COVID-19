@@ -49,9 +49,11 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:x.x.x"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:x.x.x"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.2.0-alpha01"
+    implementation 'com.squareup.picasso:picasso:2.5.2'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
 
 }
