@@ -12,7 +12,7 @@ import com.vk.covid_19.model.GlobalData
 import kotlinx.android.synthetic.main.fragment_world.*
 import kotlinx.coroutines.launch
 
-class HomeFragment : Fragment() {
+class WorldFragment : Fragment() {
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,

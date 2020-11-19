@@ -15,7 +15,7 @@ private val retrofit = Retrofit.Builder()
 interface ApiServiceTotalScores {
     @GET("/v3/covid-19/all")
     suspend fun getGlobalData(): GlobalData
-    @GET("/v3/countries")
+    @GET("/v2/countries")
     suspend fun fetchAllCountries(): List<CountryData>
 }
 object Covid19Api {
