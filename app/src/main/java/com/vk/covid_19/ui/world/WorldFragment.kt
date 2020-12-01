@@ -6,11 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
 import com.vk.covid_19.R
-import com.vk.covid_19.datasource.Covid19Api
+import com.vk.covid_19.databinding.FragmentWorldBinding
 import kotlinx.android.synthetic.main.fragment_world.*
-import kotlinx.coroutines.launch
 
 class WorldFragment : Fragment() {
     val viewModel: WorldDataViewModel by viewModels()
@@ -27,6 +25,10 @@ class WorldFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val binding = FragmentWorldBinding.bind(view)
+        binding.lifecycleOwner = this
+        binding.viewModel = viewModel
+        /*
         viewModel.worldLiveData.observe(viewLifecycleOwner){globalData->
             worldCasesNumbertextView.text = globalData.cases.toString()
             worldDeathsNumberTextView.text = globalData.deaths.toString()
@@ -34,7 +36,14 @@ class WorldFragment : Fragment() {
             worldCasesTextView.visibility = View.VISIBLE
             worldDeathsTextView.visibility = View.VISIBLE
             worldRecoveredTextView.visibility = View.VISIBLE
-        }
+        }*/
+
+/*        viewModel.refreshLiveData.observe(viewLifecycleOwner){ isRefreshingNow ->
+            progressBar.visibility = if (isRefreshingNow)
+                View.VISIBLE
+            else
+                View.GONE
+        }*/
 
         viewModel.refreshData()
 

@@ -1,103 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.world.WorldFragment">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        android:id="@+id/covidTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="96dp"
-        android:text="COVID-19 Worldwide Statistics"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:textColor="@color/colorBlack"
-        />
-
-    <TextView
-        android:id="@+id/worldDeathsTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Deaths"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toStartOf="@id/worldDeathsNumberTextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/worldCasesTextView"
-        android:textColor="@color/colorBlack"/>
+    <data>
+        <variable
+            name="viewModel"
+            type="com.vk.covid_19.ui.world.WorldDataViewModel" />
+    </data>
 
 
-    <TextView
-        android:id="@+id/worldRecoveredTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Recovered"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toStartOf="@id/worldRecoveredNumberTextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/worldDeathsTextView"
-        android:textColor="@color/colorBlack"/>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.world.WorldFragment">
 
-    <Button
-        android:id="@+id/updateStatsButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Update!"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/covidTextView"
-        android:layout_marginTop="32dp"/>
+        <TextView
+            android:id="@+id/covidTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="96dp"
+            android:text="COVID-19 Worldwide Statistics"
+            android:textColor="@color/colorBlack"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/worldCasesNumbertextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="40dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/worldCasesTextView"
-        app:layout_constraintTop_toBottomOf="@+id/updateStatsButton" />
-
-    <TextView
-        android:id="@+id/worldDeathsNumberTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/worldDeathsTextView"
-        app:layout_constraintTop_toTopOf="@+id/worldDeathsTextView" />
-
-    <TextView
-        android:id="@+id/worldRecoveredNumberTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/worldRecoveredTextView"
-        app:layout_constraintTop_toBottomOf="@+id/worldDeathsTextView" />
-
-    <TextView
-        android:id="@+id/worldCasesTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Cases"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toStartOf="@id/worldCasesNumbertextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/updateStatsButton"
-        android:textColor="@color/colorBlack"
-        />
+        <TextView
+            android:id="@+id/worldDeathsTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Deaths"
+            android:textColor="@color/colorBlack"
+            app:layout_constraintEnd_toStartOf="@id/worldDeathsNumberTextView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/worldCasesTextView" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/worldRecoveredTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Recovered"
+            android:textColor="@color/colorBlack"
+            app:layout_constraintEnd_toStartOf="@id/worldRecoveredNumberTextView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/worldDeathsTextView" />
+
+        <Button
+            android:id="@+id/updateStatsButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="Update!"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/covidTextView" />
+
+        <TextView
+            android:id="@+id/worldCasesNumbertextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="40dp"
+            android:text="@{Integer.toString(viewModel.worldLiveData.cases)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/worldCasesTextView"
+            app:layout_constraintTop_toBottomOf="@+id/updateStatsButton" />
+
+        <TextView
+            android:id="@+id/worldDeathsNumberTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:text="@{Integer.toString(viewModel.worldLiveData.deaths)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/worldDeathsTextView"
+            app:layout_constraintTop_toTopOf="@+id/worldDeathsTextView" />
+
+        <TextView
+            android:id="@+id/worldRecoveredNumberTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
+            android:text="@{Integer.toString(viewModel.worldLiveData.recovered)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/worldRecoveredTextView"
+            app:layout_constraintTop_toBottomOf="@+id/worldDeathsTextView" />
+
+        <TextView
+            android:id="@+id/worldCasesTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Cases"
+            android:textColor="@color/colorBlack"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toStartOf="@id/worldCasesNumbertextView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/updateStatsButton" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:visibleIfTrue="@{viewModel.refreshLiveData}"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
