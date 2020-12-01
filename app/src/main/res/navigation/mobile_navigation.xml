@@ -15,11 +15,24 @@
         android:id="@+id/navigation_countries"
         android:name="com.vk.covid_19.ui.countries.CountriesFragment"
         android:label="@string/title_countries"
-        tools:layout="@layout/fragment_countries" />
+        tools:layout="@layout/fragment_countries" >
+        <action
+            android:id="@+id/action_navigation_countries_to_countryDetailsFragment"
+            app:destination="@id/countryDetailsFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_map"
         android:name="com.vk.covid_19.ui.map.MapFragment"
         android:label="@string/title_map"
         tools:layout="@layout/fragment_map" />
+    <fragment
+        android:id="@+id/countryDetailsFragment"
+        android:name="com.vk.covid_19.ui.countrydetails.CountryDetailsFragment"
+        android:label="fragment_country_details"
+        tools:layout="@layout/fragment_country_details" >
+        <argument
+            android:name="countryName"
+            app:argType="string" />
+    </fragment>
 </navigation>

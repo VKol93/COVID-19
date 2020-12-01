@@ -1,6 +1,6 @@
 package com.vk.covid_19.model
 
-data class GlobalData(
+data class WorldData(
     var active: Int,
     var activePerOneMillion: Double,
     var affectedCountries: Int,

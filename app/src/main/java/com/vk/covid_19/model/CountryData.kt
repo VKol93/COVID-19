@@ -5,8 +5,8 @@ import com.google.gson.annotations.SerializedName
 
 data class CountryData(
     @SerializedName(value = "countryInfo") var info: CountryInfo,
-    var cases: Int,
-    var name: String,
+    val cases: Int,
+    @SerializedName (value = "country") var name: String,
     var deaths: Int,
     var population: Int,
     var recovered: Int,
@@ -17,5 +17,5 @@ data class CountryData(
 )
 
 data class CountryInfo(
-    var flag: String,
+    var flag: String
 )

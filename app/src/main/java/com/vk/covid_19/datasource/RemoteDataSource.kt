@@ -1,7 +1,7 @@
 package com.vk.covid_19.datasource
 
 import com.vk.covid_19.model.CountryData
-import com.vk.covid_19.model.GlobalData
+import com.vk.covid_19.model.WorldData
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
@@ -14,7 +14,7 @@ private val retrofit = Retrofit.Builder()
 
 interface ApiServiceTotalScores {
     @GET("/v3/covid-19/all")
-    suspend fun getGlobalData(): GlobalData
+    suspend fun getGlobalData(): WorldData
     @GET("/v2/countries")
     suspend fun fetchAllCountries(): List<CountryData>
 }

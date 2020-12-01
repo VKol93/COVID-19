@@ -5,14 +5,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.vk.covid_19.R
 import com.vk.covid_19.datasource.Covid19Api
-import com.vk.covid_19.model.GlobalData
 import kotlinx.android.synthetic.main.fragment_world.*
 import kotlinx.coroutines.launch
 
 class WorldFragment : Fragment() {
+    val viewModel: WorldDataViewModel by viewModels()
+//    val viewModel = WorldDataViewModel()
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
@@ -25,16 +27,7 @@ class WorldFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        updateData()
-
-        updateStatsButton.setOnClickListener{
-           updateData()
-        }
-
-    }
-    private fun updateData (){
-        lifecycleScope.launch {
-            val globalData = Covid19Api.retrofitService.getGlobalData()
+        viewModel.worldLiveData.observe(viewLifecycleOwner){globalData->
             worldCasesNumbertextView.text = globalData.cases.toString()
             worldDeathsNumberTextView.text = globalData.deaths.toString()
             worldRecoveredNumberTextView.text = globalData.recovered.toString()
@@ -43,6 +36,11 @@ class WorldFragment : Fragment() {
             worldRecoveredTextView.visibility = View.VISIBLE
         }
 
-    }
+        viewModel.refreshData()
 
+        updateStatsButton.setOnClickListener{
+           viewModel.refreshData()
+        }
+
+    }
 }
