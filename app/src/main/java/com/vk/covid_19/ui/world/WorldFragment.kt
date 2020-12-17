@@ -11,15 +11,14 @@ import com.vk.covid_19.databinding.FragmentWorldBinding
 import kotlinx.android.synthetic.main.fragment_world.*
 
 class WorldFragment : Fragment() {
-    val viewModel: WorldDataViewModel by viewModels()
+    private val viewModel: WorldDataViewModel by viewModels()
 //    val viewModel = WorldDataViewModel()
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        val root = inflater.inflate(R.layout.fragment_world, container, false)
-        return root
+    return inflater.inflate(R.layout.fragment_world, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
