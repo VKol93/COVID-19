@@ -4,4 +4,11 @@
     <string name="title_countries">Countries</string>
     <string name="title_map">Map</string>
     <string name="title_country_details">Country Details</string>
+
+    <string-array name="sort_categories">
+        <item>by name</item>
+        <item>by cases</item>
+        <item>by death</item>
+        <item>by recovered</item>
+    </string-array>
 </resources>

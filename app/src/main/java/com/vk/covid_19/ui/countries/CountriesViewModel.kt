@@ -8,6 +8,9 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class CountriesViewModel : ViewModel(){
+    enum class SortedType {
+        BY_NAME, BY_CASES, BY_DEATH, BY_RECOVERED
+    }
     private val _countriesLiveData = MutableLiveData<List<CountryData>>()
     val countriesLiveData: LiveData<List<CountryData>> = _countriesLiveData
 
@@ -24,6 +27,17 @@ class CountriesViewModel : ViewModel(){
             //countriesLiveData.value = countries
 
         }
+    }
+
+    fun changeSortedType(sortedType: SortedType){
+        val countries = countriesLiveData.value
+        val sortedCountries = when(sortedType){
+            SortedType.BY_NAME -> countries?.sortedBy{it.name}
+            SortedType.BY_CASES ->countries?.sortedBy{it.cases}
+            SortedType.BY_DEATH ->countries?.sortedBy{it.deaths}
+            SortedType.BY_RECOVERED ->countries?.sortedBy{it.recovered}
+        }
+        _countriesLiveData.value = sortedCountries
     }
 }
 

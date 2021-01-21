@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -51,6 +53,46 @@ class CountriesFragment : Fragment() {
             else
                 View.INVISIBLE
         }
+
+        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                when(position) {
+                    0 -> {
+                        viewModel.changeSortedType(CountriesViewModel.SortedType.BY_NAME)
+                    }
+                    1 -> {
+                        viewModel.changeSortedType(CountriesViewModel.SortedType.BY_CASES)
+                    }
+                    2 -> {
+                        viewModel.changeSortedType(CountriesViewModel.SortedType.BY_DEATH)
+                    }
+                    3 -> {
+                        viewModel.changeSortedType(CountriesViewModel.SortedType.BY_RECOVERED)
+                    }
+                }
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+
+            }
+        }
+        val searchViewListener = object:SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+
+                return true
+            }
+
+        }
+        searchView.setOnQueryTextListener(searchViewListener)
     }
 }
 
