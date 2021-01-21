@@ -3,9 +3,11 @@ package com.vk.covid_19.ui.countrydetails
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.vk.covid_19.R
 import com.vk.covid_19.datasource.Covid19Api
@@ -34,10 +36,19 @@ class CountryDetailsFragment : Fragment() {
             if (country != null) {
                 casesTextView.text = country.cases.toString()
                 recoveredTextView.text = country.recovered.toString()
+                deathsTextView.text = country.deaths.toString()
             } else {
                 casesTextView.text = "Error"
             }
         }
+      /*  val callback = requireActivity().onBackPressedDispatcher.addCallback(this) {
+    }*/
+        // fi ndNavController().popBackStack()
+    }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == android.R.id.home)
+            findNavController().popBackStack()
+        return super.onOptionsItemSelected(item)
     }
 }

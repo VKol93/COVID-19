@@ -11,11 +11,15 @@ data class CountryData(
     var population: Int,
     var recovered: Int,
     var tests: Int,
+    var casesPerOneMillion: Double
+
     //var todayCases: Int,
     //var todayDeaths: Int,
     //var todayRecovered: Int
 )
 
 data class CountryInfo(
-    var flag: String
+    var flag: String,
+    var lat: Double,
+    var long: Double
 )
