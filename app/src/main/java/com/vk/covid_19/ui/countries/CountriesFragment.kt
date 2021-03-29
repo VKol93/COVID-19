@@ -42,9 +42,11 @@ class CountriesFragment : Fragment() {
         //val listener = OnItemClickListenerImpl(requireContext()) v2
         //val adapter = CountriesAdapter(countries, this@CountriesFragment) v3
         viewModel.countriesLiveData.observe(viewLifecycleOwner) { countries ->
-            val adapter = CountriesAdapter(countries, listener)
-            recyclerViewCountries.adapter = adapter
-            recyclerViewCountries.layoutManager = LinearLayoutManager(requireContext())
+            if (countries != null) {
+                val adapter = CountriesAdapter(countries, listener)
+                recyclerViewCountries.adapter = adapter
+                recyclerViewCountries.layoutManager = LinearLayoutManager(requireContext())
+            }
         }
         viewModel.refreshData()
         viewModel.loadingLiveData.observe(viewLifecycleOwner) { isLoading ->
@@ -68,12 +70,6 @@ class CountriesFragment : Fragment() {
                     1 -> {
                         viewModel.changeSortedType(CountriesViewModel.SortedType.BY_CASES)
                     }
-                    2 -> {
-                        viewModel.changeSortedType(CountriesViewModel.SortedType.BY_DEATH)
-                    }
-                    3 -> {
-                        viewModel.changeSortedType(CountriesViewModel.SortedType.BY_RECOVERED)
-                    }
                 }
             }
 
@@ -81,7 +77,7 @@ class CountriesFragment : Fragment() {
 
             }
         }
-        val searchViewListener = object:SearchView.OnQueryTextListener{
+/*        val searchViewListener = object:SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String?): Boolean {
                 return true
             }
@@ -92,7 +88,7 @@ class CountriesFragment : Fragment() {
             }
 
         }
-        searchView.setOnQueryTextListener(searchViewListener)
+        searchView.setOnQueryTextListener(searchViewListener)*/
     }
 }
 

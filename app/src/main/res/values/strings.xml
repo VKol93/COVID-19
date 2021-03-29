@@ -8,7 +8,5 @@
     <string-array name="sort_categories">
         <item>by name</item>
         <item>by cases</item>
-        <item>by death</item>
-        <item>by recovered</item>
     </string-array>
 </resources>

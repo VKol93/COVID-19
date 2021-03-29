@@ -30,8 +30,6 @@ class MapFragment : Fragment() {
          * install it inside the SupportMapFragment. This method will only be triggered once the
          * user has installed Google Play services and returned to the app.
          */
-        val coords = LatLng(-34.0, 151.0)
-        googleMap.addMarker(MarkerOptions().position(coords).title("Marker in Sydney"))
 
         lifecycleScope.launch {
             val countriesList: List<CountryData> = Covid19Api.retrofitService.fetchAllCountries()

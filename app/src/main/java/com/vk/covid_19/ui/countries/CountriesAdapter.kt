@@ -22,6 +22,7 @@ class CountriesAdapter(val country: List<CountryData>, val clickListener: OnCoun
 class CountryViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
     fun bind(countryData: CountryData, listener:OnCountryItemClickListener) {
         itemView.country_name_textView.text = countryData.name
+        itemView.countryCasesTextView.text = countryData.cases.toString()
         Picasso.with(itemView.context)
             .load(countryData.info.flag)
             .into(itemView.country_flag_imageView)
