@@ -18,12 +18,10 @@ import kotlinx.coroutines.launch
 
 class CountryDetailsFragment : Fragment() {
     val args: CountryDetailsFragmentArgs by navArgs()
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_country_details, container, false)
     }
 
@@ -41,9 +39,6 @@ class CountryDetailsFragment : Fragment() {
                 casesTextView.text = "Error"
             }
         }
-      /*  val callback = requireActivity().onBackPressedDispatcher.addCallback(this) {
-    }*/
-        // fi ndNavController().popBackStack()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

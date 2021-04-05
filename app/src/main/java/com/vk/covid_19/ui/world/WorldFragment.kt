@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.fragment_world.*
 
 class WorldFragment : Fragment() {
     private val viewModel: WorldDataViewModel by viewModels()
-//    val viewModel = WorldDataViewModel()
+
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
@@ -32,9 +32,6 @@ class WorldFragment : Fragment() {
             worldCasesNumbertextView.text = globalData.cases.toString()
             worldDeathsNumberTextView.text = globalData.deaths.toString()
             worldRecoveredNumberTextView.text = globalData.recovered.toString()
-            worldCasesTextView.visibility = View.VISIBLE
-            worldDeathsTextView.visibility = View.VISIBLE
-            worldRecoveredTextView.visibility = View.VISIBLE
         }*/
 
 /*        viewModel.refreshLiveData.observe(viewLifecycleOwner){ isRefreshingNow ->

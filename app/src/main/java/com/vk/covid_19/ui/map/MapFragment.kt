@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
-
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
@@ -21,23 +20,11 @@ import kotlinx.coroutines.launch
 class MapFragment : Fragment() {
 
     private val callback = OnMapReadyCallback { googleMap ->
-        /**
-         * Manipulates the map once available.
-         * This callback is triggered when the map is ready to be used.
-         * This is where we can add markers or lines, add listeners or move the camera.
-         * In this case, we just add a marker near Sydney, Australia.
-         * If Google Play services is not installed on the device, the user will be prompted to
-         * install it inside the SupportMapFragment. This method will only be triggered once the
-         * user has installed Google Play services and returned to the app.
-         */
 
         lifecycleScope.launch {
             val countriesList: List<CountryData> = Covid19Api.retrofitService.fetchAllCountries()
             val minCases = countriesList.minByOrNull { it.casesPerOneMillion }?.casesPerOneMillion ?: 0.0
-            /*val minCasesCountry: CountryData? = countriesList.minByOrNull { it.cases }
-            val minCases = minCasesCountry?.cases ?: 0*/
             val maxCases = countriesList.maxByOrNull { it.casesPerOneMillion }?.casesPerOneMillion ?: 0.0
-
             for (country in countriesList) {
                 val countryCoords = LatLng(country.info.lat, country.info.long)
                 val group = getGroupNumberByCases(minCases, maxCases, country)
@@ -75,16 +62,4 @@ class MapFragment : Fragment() {
             country.casesPerOneMillion > maxCases * 0.5 && country.casesPerOneMillion <= maxCases * 0.75 -> 2
             else -> 3
         }
-
-//0 -> min..25%max, 1->25%max..50%max
-/*        var group: Int
-        if (country.cases >= minCases && country.cases <= maxCases * 0.25)
-            group = 0
-        if (country.cases > maxCases * 0.25 && country.cases <= maxCases * 0.5)
-            group = 1
-        if (country.cases > maxCases * 0.5 && country.cases <= maxCases * 0.75)
-            group = 2
-        else
-            group = 3*/
-
 }

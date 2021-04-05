@@ -5,6 +5,10 @@
     <string name="title_map">Map</string>
     <string name="title_country_details">Country Details</string>
 
+    <string name="casesTextView">Cases: </string>
+    <string name="recoveredTextView">Recovered: </string>
+    <string name="deathsTextView">Deaths: </string>
+
     <string-array name="sort_categories">
         <item>by name</item>
         <item>by cases</item>

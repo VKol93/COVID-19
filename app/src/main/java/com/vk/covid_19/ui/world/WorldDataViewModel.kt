@@ -3,7 +3,6 @@ package com.vk.covid_19.ui.world
 import androidx.lifecycle.*
 import com.vk.covid_19.datasource.Covid19Api
 import com.vk.covid_19.model.WorldData
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class WorldDataViewModel : ViewModel(){
@@ -16,7 +15,6 @@ class WorldDataViewModel : ViewModel(){
     fun refreshData(){
         viewModelScope.launch {
             _refreshLiveData.value = true
-            //delay(2000)
             val data = Covid19Api.retrofitService.getGlobalData()
             _worldLiveData.value = data
             _refreshLiveData.value = false

@@ -12,10 +12,6 @@ data class CountryData(
     var recovered: Int,
     var tests: Int,
     var casesPerOneMillion: Double
-
-    //var todayCases: Int,
-    //var todayDeaths: Int,
-    //var todayRecovered: Int
 )
 
 data class CountryInfo(
